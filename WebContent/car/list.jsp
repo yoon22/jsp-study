@@ -41,10 +41,13 @@
 			while (rs.next()) {
 				out.write("<tr>");
 				out.write("<td>" + rs.getInt("ci_num") + "</td>");
-				out.write("<td>" + rs.getString("ci_name") + "</td>");
+				out.write("<td>");
+				out.write("<a href==\"/jsp-study/car/view.jsp?carNum=" + rs.getInt("ci_num") + "\">");
+				out.write(rs.getString("ci_name") + "</a></td>");
 				out.write("<td>" + rs.getString("ci_year") + "</td>");
 				out.write("<td>" + rs.getString("ci_vendor") + "</td>");
 				out.write("<td>" + rs.getString("ci_etc") + "</td>");
+				out.write("<td><button onclick=\"carDelete("+rs.getInt("ci_num")+")\">삭제</button></td>");
 				out.write("</tr>");
 			}
 			out.write("</table>");
@@ -57,7 +60,12 @@
 	%>
 	<a href = "/jsp-study/car/insert.jsp">차 등록</a>
 	<script>
-	
+	function carDelete(carNum){
+		var isDelete = confirm("진짜 삭제할거??");
+		if(isDelete) {
+			location.href="/jsp-study/car/delete_ok.jsp?carNum="+carNum;
+		}
+	}
 	</script>
 </body>
 </html>
