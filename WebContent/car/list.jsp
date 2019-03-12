@@ -58,3 +58,36 @@
 
 </body>
 </html>
+
+
+
+
+select * from food order by food_num;
+
+select * from food where food_name like  '%치킨%';
+
+update food set food_name='뿌링클치킨' where food_name='뿌링클';
+
+delete from food where food_num=12;
+
+commit;
+
+create table car_info(
+ci_num number(10,0) not null primary key,
+ci_name VARCHAR2(100) not null,
+ci_year char(4) not null,
+ci_vendor varchar2(100) not null,
+ci_etc varchar2(4000)
+);
+
+select * from car_info;
+
+create sequence seq_ci_num;
+
+insert into car_info(ci_num,ci_name,ci_year,ci_vendor)
+values(seq_ci_num.nextval,'쏘나타','2019','현대자동차');
+
+insert into car_info(ci_num,ci_name,ci_year,ci_vendor)
+values(seq_ci_num.nextval,'G70','2019','제네시스');
+
+commit;
