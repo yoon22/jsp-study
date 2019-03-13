@@ -24,9 +24,15 @@
 		차년도 : <input type="text" name="ci_year" value="<%=rs.getString("ci_year")%>"><br>
 		차회사 : <input type="text" name="ci_vendor" value="<%=rs.getString("ci_vendor")%>"><br>
 		기타정보 : <input type="text" name="ci_etc" value="<%=rs.getString("ci_etc")%>"><br>
-		<button>수정</button>
+		
+		<button onclick="goList()" >수정</button>
 	</form>
-	<a href="/jsp-study/car/list.jsp">차 리스트</a>
+<script>
+	function goList(){
+		location.href="/jsp-study/car/list.jsp";
+	} 
+
+</script>	
 </body>
 </html>
 <%

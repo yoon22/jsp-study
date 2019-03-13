@@ -37,12 +37,19 @@
 				ps.setString(cnt++,"%"+carName+"%");
 			}
 			ResultSet rs = ps.executeQuery();
-			out.write("<table border=\"1\">");
+			out.write("<table border=\"3\">");
+				out.write("<tr>");
+				out.write("<th>번호</th>");
+				out.write("<th>모델</th>");
+				out.write("<th>년식</th>");
+				out.write("<th>제조회사</th>");
+				out.write("<th>기타정보</th>");
+				out.write("</tr>");
 			while (rs.next()) {
 				out.write("<tr>");
 				out.write("<td>" + rs.getInt("ci_num") + "</td>");
 				out.write("<td>");
-				out.write("<a href==\"/jsp-study/car/view.jsp?carNum=" + rs.getInt("ci_num") + "\">");
+				out.write("<a href=\"/jsp-study/car/view.jsp?ci_num=" + rs.getInt("ci_num") + "\">");
 				out.write(rs.getString("ci_name") + "</a></td>");
 				out.write("<td>" + rs.getString("ci_year") + "</td>");
 				out.write("<td>" + rs.getString("ci_vendor") + "</td>");
@@ -58,8 +65,14 @@
 		}
 		
 	%>
-	<a href = "/jsp-study/car/insert.jsp">차 등록</a>
+	
+	<button onclick="goInsertPage()" >차 등록</button>
+	
+	
 	<script>
+	function goInsertPage(){
+		location.href="/jsp-study/car/insert.jsp";
+	}
 	function carDelete(carNum){
 		var isDelete = confirm("진짜 삭제할거??");
 		if(isDelete) {

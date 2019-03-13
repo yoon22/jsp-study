@@ -23,8 +23,9 @@ String result = "수정이 실패하였습니다.";
 if(cnt==1) {
 	result = " 수정이 성공하였습니다." ;
 }
+
 %>
 <script>
 alert("<%=result%>");
-location.href="/jsp-study/car/view.jsp?carNum=<%=carNum%>";
+location.href="/jsp-study/car/view.jsp?ci_num=<%=carNum%>";
 </script>
